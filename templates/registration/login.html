@@ -1,0 +1,14 @@
+<!-- templates/registration/login.html -->
+{% extends 'navbar.html'%}
+{% load widget_tweaks %}
+{% block content %}
+<h3>Login</h3>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form> <br> <a href="{% url 'password_reset' %}">Forgot password?</a></a>
+<br> Or <br>
+<a href="{% url 'signup' %}">sign up</a></center>
+{% endblock %}

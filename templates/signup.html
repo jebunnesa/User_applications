@@ -1,0 +1,27 @@
+<!-- templates/signup.html -->
+{% extends 'navbar.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container">
+  <h2 align="center">Sign up</h2>
+  
+  <form align="center" method="post">
+    {% csrf_token %}
+   {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+    
+    {% for field in form.visible_fields %}<center>
+      <div class="col-md-4 mb-3">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div> 
+      
+    {% endfor %}
+      <button type="submit" class="btn btn-success">Sign up</button>
+  </form>
+</div>
+{% endblock %}
