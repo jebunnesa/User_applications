@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator
 
 
 class users(models.Model):
-    name =  models.CharField(max_length=200, default='')
+    name = models.CharField(max_length=200, default='')
     email = models.EmailField(unique=True)
     phone_regex = RegexValidator(regex=r'^(?:\+?88)?01[1-9]\d{8}$',
                                  message="Invalid Mobile No.")
