@@ -18,18 +18,18 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-       <a class="nav-link" href="user_form">Application Form</a>
+       <a class="nav-link" href="{% url 'user_form' %}">Application Form</a>
     </li>
     {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="user">Applications</a>
+          <a class="nav-link" href="{% url 'user' %}">Applications</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logout">Logout</a>
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
     {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="login">Login</a>
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
     {% endif %}
 

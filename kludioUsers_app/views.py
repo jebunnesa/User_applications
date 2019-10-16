@@ -6,7 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 # Create your views here.
 
-
+# application form
 def user_form(request):
     if request.method == 'POST':
         form = userForm(request.POST)
@@ -19,11 +19,12 @@ def user_form(request):
         form = userForm()
     return render(request, 'user_info.html', {'form': form})
 
+# application list
 @login_required
 def user(request):
     user_list= users.objects.all()
     page = request.GET.get('page', 1)
-    paginator = Paginator(user_list, 10)
+    paginator = Paginator(user_list, 5)
     try:
         user = paginator.page(page)
     except PageNotAnInteger:
